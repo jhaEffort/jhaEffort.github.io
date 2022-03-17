@@ -1,32 +1,21 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
-    <el-button type="primary">点我</el-button>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld.vue";
-
 export default {
   name: "App",
-  components: {
-    HelloWorld,
-  },
-  mounted() {
-    this.getData();
-  },
-  methods: {
-    async getData() {
-      await setTimeout(() => {
-        console.log("执行");
-      });
-    },
-  },
+
+  mounted() {},
+  methods: {},
 };
 </script>
 
-<style>
-
+<style lang="scss" scoped>
+#app {
+  height: 100vh;
+}
 </style>
+
