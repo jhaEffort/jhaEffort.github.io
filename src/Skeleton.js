@@ -2,7 +2,7 @@
 import Vue from 'vue'
 import listSkeleton from './skeleton/listSkeleton'
 import detailSkeleton from './skeleton/detailSkeleton'
- 
+
 export default new Vue({
   components: {
     listSkeleton,

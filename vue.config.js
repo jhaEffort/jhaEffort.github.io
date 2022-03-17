@@ -79,9 +79,9 @@ module.exports = {
             minimize: true,
             quiet: true,
             router: {
-                mode: 'hash',
+                mode: 'history',
                 routes: [
-                    { path: '/list', skeletonId: 'listSkeleton' },
+                    { path: '', skeletonId: 'listSkeleton' },
                     { path: /^\/detail/, skeletonId: 'detailSkeleton' }
                 ]
             }

@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 Vue.use(Router)
 export default new Router({
-   mode:'hash',
+   mode:'history',
    base:'/',
    routes:[
        {
@@ -12,8 +12,8 @@ export default new Router({
            redirect:'list',
            children:[
                {
-                   path:'list',
-                   name:'list',
+                   path:'',
+                   name:'',
                    component:()=> import(/* webpackChunkName: "list-index" */ '../pages/list/index.vue'),
                    meta:{
                     title: '列表',
