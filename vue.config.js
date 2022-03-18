@@ -141,7 +141,7 @@ module.exports = {
         // 开启 CSS source maps?
         sourceMap: false,
         // 启用 CSS modules for all css / pre-processor files.
-        modules: false,
+        requireModuleExtension: false,
         loaderOptions: {
             sass: {
                 prependData: `@import "@/style/index.scss";` //引入全局变量   
