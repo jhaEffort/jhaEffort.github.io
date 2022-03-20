@@ -25,10 +25,12 @@
     "@vue/cli-plugin-eslint": "~4.5.13",
     "@vue/cli-service": "~4.5.13",
     "@vue/compiler-sfc": "^3.2.31",
+    "autoprefixer": "^8.0.0",
     "babel-eslint": "^10.1.0",
     "eslint": "^6.7.2",
     "eslint-plugin-vue": "^6.2.2",
     "image-webpack-loader": "^8.1.0",
+    "postcss-loader": "^6.2.1",
     "sass": "^1.49.9",
     "vue-template-compiler": "^2.6.11",
     "webpack-bundle-analyzer": "^4.5.0"
@@ -48,8 +50,11 @@
     "rules": {}
   },
   "browserslist": [
-    "> 1%",
+    "defaults",
+    "not ie < 11",
     "last 2 versions",
-    "not dead"
+    "> 1%",
+    "iOS 7",
+    "last 3 iOS versions"
   ]
 }

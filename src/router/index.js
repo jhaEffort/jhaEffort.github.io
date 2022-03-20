@@ -24,7 +24,7 @@ export default new Router({
        {
            path:'/my',
            name:'my',
-           component:()=> import(/*webpackChunkName my*/ '../pages/my/index.vue'),
+           component:()=> import(/*webpackChunkName: "my"*/ '../pages/my/index.vue'),
            meta:{
                title:'个人中心'
            }
