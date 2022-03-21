@@ -59,23 +59,23 @@ module.exports = {
             })
         );
         // 预渲染
-        plugins.push(
-            new PrerenderSPAPlugin({
-                staticDir: resolve('dist'), // 渲染的路径
-                indexPath: path.join(__dirname, 'dist', 'index.html'),
-                routes: ['/', '/list', '/my'], // 渲染的路由
-                renderer: new Renderer({
-                    injectProperty: '__PRERENDER_INJECTED',
-                    inject: {
-                        foo: 'bar',
-                    },
-                    headless: false,
-                    maxConcurrentRoutes: 4, // 最大渲染4个页面
-                    // 在 main.js 中 document.dispatchEvent(new Event('render-event'))，两者的事件名称要对应上。
-                    renderAfterDocumentEvent: 'render-event',
-                }),
-            })
-        );
+        // plugins.push(
+        //     new PrerenderSPAPlugin({
+        //         staticDir: resolve('dist'), // 渲染的路径
+        //         indexPath: path.join(__dirname, 'dist', 'index.html'),
+        //         routes: ['/', '/list', '/my'], // 渲染的路由
+        //         renderer: new Renderer({
+        //             injectProperty: '__PRERENDER_INJECTED',
+        //             inject: {
+        //                 foo: 'bar',
+        //             },
+        //             headless: false,
+        //             maxConcurrentRoutes: 4, // 最大渲染4个页面
+        //             // 在 main.js 中 document.dispatchEvent(new Event('render-event'))，两者的事件名称要对应上。
+        //             renderAfterDocumentEvent: 'render-event',
+        //         }),
+        //     })
+        // );
 
         // 骨架屏
         plugins.push(new SkeletonWebpackPlugin({
