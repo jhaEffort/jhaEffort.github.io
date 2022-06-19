@@ -4,6 +4,12 @@
         <el-button @click="$router.push({path:'/'})">去index</el-button>
     </div>
 </template>
+<script>
+
+export default {
+
+}
+</script>
 <style lang="scss" scoped>
 div{
     color:red;

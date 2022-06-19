@@ -24,6 +24,14 @@ module.exports = {
     assetsDir: '',// 将所有打包的js css img 都放在当前文件下
     productionSourceMap: false, // 开启sourceMap
     filenameHashing: true, // 生成hash模式
+    pages: {
+        index: {
+            entry: 'src/main.js',
+            template: 'public/index.html',
+            filename: 'index.html',
+            chunks: ['chunk-vendors', 'chunk-libs', 'chunk-elementUI', 'chunk-styles', 'chunk-common', 'index'],
+        }
+    },
     configureWebpack: config => {
         const plugins = []
         config["performance"] = {//打包文件大小配置
@@ -98,8 +106,8 @@ module.exports = {
         // 第三方包压缩  
         config.optimization = {
             splitChunks: {
-                maxAsyncRequests:30,// 按需加载时的最大并行请求数 默认30
-                maxInitialRequests:30, // 入口点的最大并行请求数 默认30
+                maxAsyncRequests: 30,// 按需加载时的最大并行请求数 默认30
+                maxInitialRequests: 30, // 入口点的最大并行请求数 默认30
                 cacheGroups: {
                     libs: {
                         name: "chunk-libs",
@@ -110,7 +118,7 @@ module.exports = {
                     },
                     elementUI: {
                         name: "chunk-elementUI",
-                        automaticNameDelimiter:'=====', // 打包出来的 chunk {中间的分割线} element ui
+                        automaticNameDelimiter: '=====', // 打包出来的 chunk {中间的分割线} element ui
                         priority: 20,
                         test: /[\\/]node_modules[\\/]_?element-ui(.*)/,
                         chunks: "all",
@@ -133,14 +141,9 @@ module.exports = {
     },
     // 类似 webpack module Loader 
     chainWebpack: config => {
-        // config.plugins.delete('prefetch')
-        // config.plugins.delete('preload')
+        config.plugins.delete('prefetch-index')
+        config.plugins.delete('preload-index')
         // 有选择的开启prefetch 只加载当前的
-        config.plugin('prefetch').tap(options => {
-            options[0].fileBlacklist = options[0].fileBlacklist || []
-            options[0].fileBlacklist.push(/myasyncRoute(.)+?\.js$/)
-            return options
-        })
         config.resolve.symlinks(true); // 修复热更新失效
         // 压缩图片
         config.module.rule("images")
